@@ -14,6 +14,7 @@ using System.Text;
 
 namespace BookStoreLibrary.Controllers
 {
+    [Route("api/[controller]")]
     public class AccountController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -29,8 +30,8 @@ namespace BookStoreLibrary.Controllers
             this.signInManager = signInManager;
             this.roleManager = roleManager;
         }
-        [Authorize]
-        [HttpPost("api/account/create/user")]
+        [Authorize(Policy = Policies.Admin)]
+        [HttpPost("create/user/moderator")]
         public IActionResult RegisterUser([FromBody] SaveUserResource userAccount)
         {
             var user = new User()
@@ -41,7 +42,7 @@ namespace BookStoreLibrary.Controllers
             userManager.CreateAsync(user, userAccount.Password).Wait();
 
             var registeredUser = userManager.FindByNameAsync(user.UserName).Result;
-            userManager.AddToRoleAsync(registeredUser, "Member").Wait();
+            userManager.AddToRoleAsync(registeredUser, Policies.Moderator).Wait();
             return Ok(new 
             {
                 registeredUser.Id,
@@ -95,42 +96,5 @@ namespace BookStoreLibrary.Controllers
             };
             return tokenHandler.WriteToken(tokenHandler.CreateToken(token));
         }
-        /*
-        //[Authorize]
-        [HttpGet("api/account/intialize")]
-        public IActionResult Intialize()
-        {/*
-            var roles = new List<Role>
-            {
-                new Role()
-                {
-                    Name = Policies.Admin
-                },
-                new Role()
-                {
-                    Name = Policies.Moderator
-                }
-            };
-            foreach (var role in roles)
-            {
-                roleManager.CreateAsync(role).Wait();
-            }
-            var adminUser = new User()
-            {
-                UserName = "Admin",
-                Email = "admin@admin.com"
-            };
-            userManager.CreateAsync(adminUser, "BsL-12345678900").Wait();
-            var admin = userManager.FindByEmailAsync(adminUser.Email).Result;
-            userManager.AddToRoleAsync(admin, Policies.Admin).Wait();
-            userManager.AddToRoleAsync(admin, Policies.Moderator).Wait();
-
-            return Ok(new
-            {
-                admin.Email,
-                admin.UserName,
-                Roles = userManager.GetRolesAsync(admin).Result
-            });
-        }*/
     }
 }
