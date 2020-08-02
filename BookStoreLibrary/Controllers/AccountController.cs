@@ -53,7 +53,7 @@ namespace BookStoreLibrary.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("api/account/login")]
+        [HttpPost("login")]
         public IActionResult Login([FromBody] SaveUserResource userAccount)
         {
             var userFromDb = userManager.FindByEmailAsync(userAccount.Email).Result;
