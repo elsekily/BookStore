@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BookStoreLibrary.Controllers.Resources
+namespace BookStoreLibrary.Entities.Resources
 {
     public class AuthorWithBooksResource : IdNamePair
     {

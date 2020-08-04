@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookStoreLibrary.Controllers.Resources
+namespace BookStoreLibrary.Entities.Resources
 {
     public class InvoiceResource
     {

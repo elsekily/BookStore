@@ -1,10 +1,7 @@
-﻿using BookStoreLibrary.Controllers.Resources;
-using BookStoreLibrary.Models;
+﻿using BookStoreLibrary.Entities.Models;
+using BookStoreLibrary.Entities.Resources;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace BookStoreLibrary.Persistence
 {

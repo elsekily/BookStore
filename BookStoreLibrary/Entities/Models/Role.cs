@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 
-namespace BookStoreLibrary.Models
+namespace BookStoreLibrary.Entities.Models
 {
     public class Role : IdentityRole<int>
     {

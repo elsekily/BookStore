@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BookStoreLibrary.Controllers.Resources
+namespace BookStoreLibrary.Entities.Resources
 {
     public class BookSaveResource
     {

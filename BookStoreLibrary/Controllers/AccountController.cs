@@ -1,5 +1,5 @@
-﻿using BookStoreLibrary.Controllers.Resources;
-using BookStoreLibrary.Models;
+﻿using BookStoreLibrary.Entities.Models;
+using BookStoreLibrary.Entities.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

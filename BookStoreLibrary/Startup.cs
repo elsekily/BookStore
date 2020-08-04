@@ -1,13 +1,12 @@
 using AutoMapper;
-using BookStoreLibrary.Controllers.Resources;
 using BookStoreLibrary.Core;
-using BookStoreLibrary.Models;
+using BookStoreLibrary.Entities.Models;
+using BookStoreLibrary.Entities.Resources;
 using BookStoreLibrary.Persistence;
 using BookStoreLibrary.Persistence.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

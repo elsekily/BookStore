@@ -1,7 +1,6 @@
 ﻿using BookStoreLibrary.Core;
-using BookStoreLibrary.Models;
+using BookStoreLibrary.Entities.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

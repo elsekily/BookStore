@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using BookStoreLibrary.Controllers.Resources;
 using BookStoreLibrary.Core;
-using BookStoreLibrary.Models;
+using BookStoreLibrary.Entities.Models;
+using BookStoreLibrary.Entities.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStoreLibrary.Controllers

@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace BookStoreLibrary.Models
+namespace BookStoreLibrary.Entities.Models
 {
     public class Author
     {

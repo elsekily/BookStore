@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace BookStoreLibrary.Models
+namespace BookStoreLibrary.Entities.Models
 {
     public class UserRole : IdentityUserRole<int>
     {

@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using BookStoreLibrary.Controllers.Resources;
-using BookStoreLibrary.Models;
+using BookStoreLibrary.Entities.Models;
+using BookStoreLibrary.Entities.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace BookStoreLibrary.Mapping
 {

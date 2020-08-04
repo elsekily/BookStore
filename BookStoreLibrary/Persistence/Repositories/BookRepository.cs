@@ -1,9 +1,7 @@
 ﻿using BookStoreLibrary.Core;
-using BookStoreLibrary.Models;
+using BookStoreLibrary.Entities.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BookStoreLibrary.Persistence.Repositories
