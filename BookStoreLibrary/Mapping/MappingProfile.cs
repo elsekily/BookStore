@@ -28,7 +28,7 @@ namespace BookStoreLibrary.Mapping
                 .ForMember(br => br.Books,
                 opt => opt.MapFrom(a =>
                 a.Books.Select(ba => new BookResource
-                { ID = ba.Book.ID, Name = ba.Book.Name, Price = ba.Book.Price })));
+                { ID = ba.Book.ID, Name = ba.Book.Name, Quantity = ba.Book.Quantity, Price = ba.Book.Price })));
 
             CreateMap<Invoice, InvoiceResource>()
                 .ForMember(ir => ir.AddedBy, opt => opt.MapFrom(i => i.User.UserName))
