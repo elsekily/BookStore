@@ -43,6 +43,20 @@ namespace BookStoreLibrary.Mapping
                     TotalPrice = ib.TotalPrice
                 })));
 
+            CreateMap<Purchase, PurchaseResource>()
+                .ForMember(pr => pr.AddedBy, opt => opt.MapFrom(p => p.User.UserName))
+                .ForMember(pr => pr.Books,
+                opt => opt.MapFrom(p => p.Books.Select(pb => new PurchaseBookResource
+                {
+                    BookID = pb.BookID,
+                    BookName = pb.Book.Name,
+                    BookPrice = pb.BookPrice,
+                    NumberOfItems = pb.NumberOfItems,
+                    BookDiscount = pb.BookDiscount,
+                    TotalPrice = pb.TotalPrice
+                })));
+
+
             //API to Domain
             CreateMap<AuthorSaveResource, Author>()
                 .ForMember(a => a.ID, opt => opt.Ignore())
@@ -81,13 +95,27 @@ namespace BookStoreLibrary.Mapping
                 .ForMember(i => i.Price, opt => opt.MapFrom(isr => isr.Price))
                 .ForMember(i => i.Discount, opt => opt.MapFrom(isr => isr.Discount))
                 .ForMember(i => i.TotalPrice, opt => opt.MapFrom(isr => isr.TotalPrice))
-                .ForMember(i => i.Books, opt => opt.MapFrom(ir => ir.Books.Select(ibr => new InvoiceBooks
+                .ForMember(i => i.Books, opt => opt.MapFrom(isr => isr.Books.Select(ibr => new InvoiceBooks
                 {
                     BookID = ibr.BookID,
                     BookPrice = ibr.BookPrice,
                     BookDiscount = ibr.BookDiscount,
                     NumberOfItems = ibr.NumberOfItems,
                     TotalPrice = ibr.TotalPrice
+                })));
+
+            CreateMap<PurchaseSaveResource, Purchase>()
+                .ForMember(p => p.ID, opt => opt.Ignore())
+                .ForMember(p => p.Price, opt => opt.MapFrom(psr => psr.Price))
+                .ForMember(p => p.Discount, opt => opt.MapFrom(psr => psr.Discount))
+                .ForMember(p => p.TotalPrice, opt => opt.MapFrom(psr => psr.TotalPrice))
+                .ForMember(p => p.Books, opt => opt.MapFrom(psr => psr.Books.Select(pbr => new PurchaseBooks
+                {
+                    BookID = pbr.BookID,
+                    BookPrice = pbr.BookPrice,
+                    BookDiscount = pbr.BookDiscount,
+                    NumberOfItems = pbr.NumberOfItems,
+                    TotalPrice = pbr.TotalPrice
                 })));
         }
     }

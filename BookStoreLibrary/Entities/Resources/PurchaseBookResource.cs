@@ -5,6 +5,7 @@ namespace BookStoreLibrary.Entities.Resources
     public class PurchaseBookResource
     {
         public int BookID { get; set; }
+        public string BookName { get; set; }
         [Range(0, int.MaxValue)]
         public double BookPrice { get; set; }
         [Range(1, int.MaxValue)]
