@@ -10,11 +10,13 @@ namespace BookStoreLibrary.Entities.Models
     {
         public IList<Book> Books { get; set; }
         public IList<Author> Authors { get; set; }
+        public IList<Purchase> Purchases { get; set; }
         public ICollection<UserRole> Roles { get; set; }
         public User()
         {
             Books = new List<Book>();
             Authors = new List<Author>();
+            Purchases = new List<Purchase>();
         }
     }
 }

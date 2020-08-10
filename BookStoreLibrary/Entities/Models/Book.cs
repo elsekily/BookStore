@@ -20,10 +20,12 @@ namespace BookStoreLibrary.Entities.Models
         public int Quantity { get; set; }
         public IList<AuthorBooks> Authors { get; set; }
         public IList<InvoiceBooks> Invoices { get; set; }
+        public IList<PurchaseBooks> Purchases { get; set; }
         public Book()
         {
             Authors = new List<AuthorBooks>();
             Invoices = new List<InvoiceBooks>();
+            Purchases = new List<PurchaseBooks>();
         }
     }
 }

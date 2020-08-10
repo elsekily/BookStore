@@ -11,6 +11,7 @@ namespace BookStoreLibrary.Persistence
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
         public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options)
         : base(options)
         {
@@ -27,6 +28,7 @@ namespace BookStoreLibrary.Persistence
 
             builder.Entity<Book>().HasOne(b => b.User).WithMany(u => u.Books);
             builder.Entity<Author>().HasOne(b => b.User).WithMany(u => u.Authors);
+            builder.Entity<Purchase>().HasOne(b => b.User).WithMany(u => u.Purchases);
 
         }
     }
