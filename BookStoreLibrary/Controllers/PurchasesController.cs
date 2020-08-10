@@ -42,20 +42,12 @@ namespace BookStoreLibrary.Controllers
             var purchase = mapper.Map<PurchaseSaveResource, Purchase>(purchaseResource);
             purchase.User = userManager.GetUserAsync(HttpContext.User).Result;
             purchase.TimeIssued = DateTime.Now;
+            repository.Add(purchase);
+            await unitOfWork.CompleteAsync();
 
-            try
-            {
-                repository.Add(purchase);
-                await unitOfWork.CompleteAsync();
-
-                purchase = await repository.GetPurchase(purchase.ID);
-                var result = mapper.Map<Purchase, PurchaseSaveResource>(purchase);
-                return Created(nameof(GetPurchase), result);
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            purchase = await repository.GetPurchase(purchase.ID);
+            var result = mapper.Map<Purchase, PurchaseSaveResource>(purchase);
+            return Created(nameof(GetPurchase), result);
         }
         [Authorize(Policy = Policies.Admin)]
         [HttpDelete("{id}")]
