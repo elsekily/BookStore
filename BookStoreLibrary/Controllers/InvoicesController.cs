@@ -25,6 +25,7 @@ namespace BookStoreLibrary.Controllers
             this.repository = repository;
             this.userManager = userManager;
         }
+        [Authorize(Policy = Policies.Moderator)]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetInvoice(int id)
         {

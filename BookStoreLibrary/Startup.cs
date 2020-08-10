@@ -66,6 +66,7 @@ namespace BookStoreLibrary
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+            services.AddScoped<IPurchaseRepository, PurchaseRepository>();
             services.AddMvc();
         }
 
